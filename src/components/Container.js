@@ -19,7 +19,7 @@ class Container extends Component {
           pelis: response.Search
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => <div>{err}</div>);
   }
   handleSubmit = e => {
     e.preventDefault();
@@ -47,7 +47,7 @@ class Container extends Component {
         </form>
         <div>
           {this.state.pelis.map(movie => (
-            <Movies movie={movie} />
+            <Movies movie={movie} key={movie.imdbID} />
           ))}
         </div>
 
