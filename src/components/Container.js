@@ -4,7 +4,7 @@ import "../styles/Container.css";
 
 class Container extends Component {
   state = {
-    query: "",
+    query: "batman",
     page: 1,
     pelis: []
   };
@@ -19,7 +19,7 @@ class Container extends Component {
           pelis: response.Search
         });
       })
-      .catch(err => <div>{err}</div>);
+      .catch(err => console.log(err));
   }
   handleSubmit = e => {
     e.preventDefault();

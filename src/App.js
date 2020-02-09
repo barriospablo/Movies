@@ -13,7 +13,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/home" component={Container} />
-          <Route exact path="/detalle" component={Detalle} />
+          <Route exact path="/detalle/:handle" component={Detalle} />
           <Redirect from="*" to="/home" />
         </Switch>
         <Footer />
