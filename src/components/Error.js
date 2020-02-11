@@ -6,7 +6,7 @@ class pageError extends Component {
     return (
       <div className="Error">
         <h1>Error</h1>
-        <p>Click in home</p>
+        <p>search other movie</p>
       </div>
     );
   }

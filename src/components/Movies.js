@@ -6,15 +6,15 @@ function Movies(props) {
   const { movie } = props;
 
   return (
-    <div className="card col-sm-6 col-md-4">
-      <div className="card-body">
-        <img src={movie.Poster} className="card-img-top" alt="img" />
-        <Link to={{ pathname: `/detalle/${movie.imdbID}` }}>
+    <Link to={{ pathname: `/detalle/${movie.imdbID}` }}>
+      <div className="card col-6 col-md-3">
+        <div className="card-body">
+          <img src={movie.Poster} className="card-img-top" alt="img" />
           <h5 className="card-title">{movie.Title}</h5>
-        </Link>
-        <p className="card-text">{movie.Year}</p>
+          <p className="card-text">{movie.Year}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

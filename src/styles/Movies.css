@@ -3,8 +3,18 @@
   margin: 20px;
   list-style-type: none;
   display: inline-block;
+  transition: 1s;
+}
+.card:hover {
+  transform: scale(1.1, 1.1);
+}
+.card-title {
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
 }
 img {
-  max-width: 200px;
+  width: 200px;
   height: 300px;
 }
