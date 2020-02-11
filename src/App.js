@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import "./styles/App.css";
 import Container from "./components/Container";
 import Detalle from "./components/Detalle";
+import pageError from "./components/Error";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/home" component={Container} />
           <Route exact path="/detalle/:handle" component={Detalle} />
+          {/* <Route exact path="/error" component={pageError} /> */}
           <Redirect from="*" to="/home" />
         </Switch>
         <Footer />

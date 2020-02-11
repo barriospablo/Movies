@@ -9,7 +9,6 @@ function Movies(props) {
     <div className="card col-sm-6 col-md-4">
       <div className="card-body">
         <img src={movie.Poster} className="card-img-top" alt="img" />
-        {/* <Link to={"/detalle"}> */}
         <Link to={{ pathname: `/detalle/${movie.imdbID}` }}>
           <h5 className="card-title">{movie.Title}</h5>
         </Link>

@@ -24,10 +24,26 @@ class Detalle extends Component {
   }
   render() {
     return (
-      <div>
-        <p>{this.state.pelis.Title}</p>
-        <img src={this.state.pelis.Poster} />
-        <p>Hello</p>
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">{this.state.pelis.Title}</h5>
+          <img src={this.state.pelis.Poster} />
+          <p className="card-text">
+            <b>Director: </b> {this.state.pelis.Director}
+          </p>
+          <p>
+            <b>Rated: </b>
+            {this.state.pelis.Rated}
+          </p>
+          <p>
+            <b>Actors: </b>
+            {this.state.pelis.Actors}
+          </p>
+          <p>
+            <b>Laguage: </b>
+            {this.state.pelis.Language}
+          </p>
+        </div>
       </div>
     );
   }

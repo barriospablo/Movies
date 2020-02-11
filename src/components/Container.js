@@ -1,31 +1,45 @@
 import React, { Component } from "react";
 import Movies from "./Movies";
+import Error from "./Error";
 import "../styles/Container.css";
 
 class Container extends Component {
   state = {
-    query: "batman",
-    page: 1,
+    error: null,
+    query: "",
     pelis: []
   };
+  componentDidMount() {
+    console.log("Mounted");
+  }
+  componentWillUpdate(pervProps, prevState) {
+    console.log(this.state.query.length);
+    console.log(prevState);
+  }
 
   getMovies() {
-    const key = "2d0c175a";
-    const url = `http://www.omdbapi.com/?s=${this.state.query}&apikey=${key}&page=${this.state.page}`;
+    const key = "4d5a0105";
+    const url = `http://www.omdbapi.com/?s=${this.state.query}&apikey=${key}`;
     fetch(url)
       .then(response => response.json())
       .then(response => {
         this.setState({
           pelis: response.Search
         });
+        console.log(this.state);
       })
-      .catch(err => console.log(err));
+      .catch(error => this.setState({ error: error }));
   }
+
   handleSubmit = e => {
     e.preventDefault();
     this.getMovies();
   };
   handleChange = e => {
+    if (this.state.query.length > 4) {
+      this.getMovies();
+    }
+
     this.setState({
       [e.target.id]: e.target.value
     });
@@ -46,18 +60,14 @@ class Container extends Component {
           />
         </form>
         <div>
-          {this.state.pelis.map(movie => (
-            <Movies movie={movie} key={movie.imdbID} />
-          ))}
+          {this.state.pelis == undefined ? (
+            <Error />
+          ) : (
+            this.state.pelis.map(movie => (
+              <Movies movie={movie} key={movie.imdbID} />
+            ))
+          )}
         </div>
-
-        {/* <ul className="list-group">
-          {this.state.pelis.map(movie => (
-            <li className="list-group-item" key={movie.imdbID}>
-              <Movies movie={movie} />
-            </li>
-          ))}
-        </ul> */}
       </div>
     );
   }
